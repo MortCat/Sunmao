@@ -1,0 +1,23 @@
+<Window x:Class="Sunmao.Samples.ThemeGallery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sunmao Theme Gallery"
+        Width="1320"
+        Height="900"
+        Style="{DynamicResource AppWindow}">
+    <DockPanel>
+        <!-- Theme options: change them to see the whole gallery restyle live. -->
+        <Border DockPanel.Dock="Top" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource LineBrush}"
+                BorderThickness="0,0,0,1" Padding="22,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Variant" Style="{DynamicResource CaptionText}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                <ComboBox x:Name="VariantPicker" Width="150" SelectionChanged="OnOptionChanged" />
+                <TextBlock Text="Density" Style="{DynamicResource CaptionText}" VerticalAlignment="Center" Margin="24,0,10,0" />
+                <ComboBox x:Name="DensityPicker" Width="130" SelectionChanged="OnOptionChanged" />
+                <TextBlock Text="Accent" Style="{DynamicResource CaptionText}" VerticalAlignment="Center" Margin="24,0,10,0" />
+                <ComboBox x:Name="AccentPicker" Width="130" SelectionChanged="OnOptionChanged" />
+            </StackPanel>
+        </Border>
+        <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto" />
+    </DockPanel>
+</Window>

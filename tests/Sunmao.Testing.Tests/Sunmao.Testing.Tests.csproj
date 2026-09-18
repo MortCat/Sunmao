@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Windows targets: the suite also covers SingleThreadUiTestHost, which needs an STA thread. -->
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoWindowsTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Sunmao.Testing\Sunmao.Testing.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+    <Description>Serial port transport (IByteTransport) for Sunmao.Communication.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunmao.Core\Sunmao.Core.csproj" />
+    <ProjectReference Include="..\Sunmao.Communication\Sunmao.Communication.csproj" />
+    <PackageReference Include="System.IO.Ports" />
+  </ItemGroup>
+
+</Project>

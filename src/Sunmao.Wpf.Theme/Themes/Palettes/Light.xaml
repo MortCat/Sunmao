@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        Walnut light palette: warm stone neutrals with a walnut accent. Every colour in the library comes from a palette; styles and controls only
+        reference these keys through DynamicResource, so switching palettes restyles a running app.
+
+        Contrast (WCAG): primary and secondary text >= 4.5:1 on every surface, tertiary text
+        >= 3:1 (meta lines and placeholders only), status text >= 4.5:1 on its soft tint.
+        ThemePaletteTests enforces these ratios.
+    -->
+
+    <Color x:Key="AccentColor">#8A5528</Color>
+
+    <!-- ==== Surfaces and text ========================================================== -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#F7F5F1" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="SurfaceSoftBrush" Color="#FBF9F6" />
+    <SolidColorBrush x:Key="SurfaceMutedBrush" Color="#EFEBE4" />
+    <SolidColorBrush x:Key="SurfaceHoverBrush" Color="#F5F1EB" />
+
+    <SolidColorBrush x:Key="LineBrush" Color="#E6E0D6" />
+    <SolidColorBrush x:Key="LineStrongBrush" Color="#D3CABB" />
+
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#221E19" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#5E554A" />
+    <SolidColorBrush x:Key="TextTertiaryBrush" Color="#877C6E" />
+
+    <!-- ==== Accent: the actions a user is meant to press ================================ -->
+    <SolidColorBrush x:Key="AccentBrush" Color="#8A5528" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="#74461F" />
+    <SolidColorBrush x:Key="AccentPressedBrush" Color="#5F3918" />
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="#F3E9DF" />
+    <SolidColorBrush x:Key="AccentSecondaryBrush" Color="#B07A45" />
+    <SolidColorBrush x:Key="TextOnAccentBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="FocusBrush" Color="#9A6232" />
+
+    <!-- ==== Chrome: the application bar. Recedes; darker than the accent on purpose ===== -->
+    <SolidColorBrush x:Key="ChromeBrush" Color="#2B231C" />
+    <SolidColorBrush x:Key="ChromeHoverBrush" Color="#3A3027" />
+    <SolidColorBrush x:Key="ChromeDividerBrush" Color="#4A3E33" />
+    <SolidColorBrush x:Key="ChromeRecessBrush" Color="#211B15" />
+    <SolidColorBrush x:Key="TextOnChromeBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="TextOnChromeMutedBrush" Color="#CBBFAE" />
+    <!-- The selected chrome tab: a light card lifted out of the bar. -->
+    <SolidColorBrush x:Key="ChromeSelectedBrush" Color="#FAF6F0" />
+    <SolidColorBrush x:Key="TextOnChromeSelectedBrush" Color="#6B3F1B" />
+    <!-- Brighter than SuccessBrush: it must read on the dark bar from across a room. -->
+    <SolidColorBrush x:Key="OnlineBrush" Color="#57D98C" />
+
+    <!-- ==== Status: outside the accent family so they read at a glance ================== -->
+    <SolidColorBrush x:Key="SuccessBrush" Color="#2F8A4E" />
+    <SolidColorBrush x:Key="SuccessSoftBrush" Color="#E5F3E9" />
+    <SolidColorBrush x:Key="SuccessTextBrush" Color="#1F6B3A" />
+
+    <SolidColorBrush x:Key="WarningBrush" Color="#D19A0B" />
+    <SolidColorBrush x:Key="WarningSoftBrush" Color="#FBF2DC" />
+    <SolidColorBrush x:Key="WarningTextBrush" Color="#765700" />
+
+    <SolidColorBrush x:Key="DangerBrush" Color="#C23B2E" />
+    <SolidColorBrush x:Key="DangerSoftBrush" Color="#FBE9E6" />
+    <SolidColorBrush x:Key="DangerTextBrush" Color="#A02D21" />
+    <SolidColorBrush x:Key="DangerLineBrush" Color="#EBBDB6" />
+
+    <SolidColorBrush x:Key="InfoBrush" Color="#2F6FA6" />
+    <SolidColorBrush x:Key="InfoSoftBrush" Color="#E6F0F8" />
+    <SolidColorBrush x:Key="InfoTextBrush" Color="#235784" />
+
+    <!--
+        Shadows. WPF renders DropShadowEffect in software for the whole subtree it decorates, so
+        use them on small chrome (raised segments, popups) and never on a long scrolling list.
+    -->
+    <DropShadowEffect x:Key="SoftShadow" BlurRadius="10" ShadowDepth="1" Direction="270" Opacity="0.10" Color="#2B1E12" />
+    <DropShadowEffect x:Key="LiftShadow" BlurRadius="18" ShadowDepth="3" Direction="270" Opacity="0.14" Color="#2B1E12" />
+
+</ResourceDictionary>

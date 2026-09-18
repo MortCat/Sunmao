@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoWindowsTargetFrameworks)</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <Description>Themed look for WPF apps: design tokens, Light/Dark/High Contrast palettes, Standard/Touch density, control styles, stroked icons and generic controls.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunmao.Core\Sunmao.Core.csproj" />
+    <ProjectReference Include="..\Sunmao.Wpf\Sunmao.Wpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Sunmao.Wpf.Theme.Tests" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Every Sunmao.Wpf.Theme control in every variant, for people and AI agents choosing a look.
+    Run normally for the interactive gallery, or pass the export switch and a folder to write PNG
+    screenshots (see App.xaml.cs).
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Sunmao.Wpf.Theme\Sunmao.Wpf.Theme.csproj" />
+  </ItemGroup>
+
+</Project>

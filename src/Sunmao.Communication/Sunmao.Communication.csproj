@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+    <Description>Byte transports (TCP, UDP), frame decoders, serialized request/response with timeouts, and a self-reconnecting managed connection.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunmao.Core\Sunmao.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Sunmao.Communication.Tests" />
+  </ItemGroup>
+
+</Project>

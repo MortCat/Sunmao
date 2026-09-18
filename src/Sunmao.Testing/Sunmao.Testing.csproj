@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+    <Description>Deterministic test helpers: condition waits, a manually advanced TimeProvider, a single-thread UI test host and a recording log sink. Works with any test framework.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunmao.Core\Sunmao.Core.csproj" />
+  </ItemGroup>
+
+</Project>

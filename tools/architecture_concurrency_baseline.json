@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "path": "src/Sunmao.Diagnostics/AsyncTextLogSink.cs",
+      "primitive": "channel.create_bounded",
+      "count": 1,
+      "owner": "Entry queue with one reader (the writer task); producers use lossy TryWrite, dispose completes and drains it."
+    },
+    {
+      "path": "src/Sunmao.Core/Lifecycle/AppComponentBase.cs",
+      "primitive": "semaphore_slim.new",
+      "count": 1,
+      "owner": "Lifecycle gate serializing Initialize/Start/Stop/Dispose and RunExclusiveAsync; released in finally."
+    },
+    {
+      "path": "src/Sunmao.Core/Lifecycle/ComponentLifecycleCoordinator.cs",
+      "primitive": "lock",
+      "count": 3,
+      "owner": "Short guard over the registration list (register and snapshot copies); no await or callback inside."
+    },
+    {
+      "path": "src/Sunmao.Core/Lifecycle/ComponentLifecycleCoordinator.cs",
+      "primitive": "semaphore_slim.new",
+      "count": 1,
+      "owner": "Coordinator lifecycle gate serializing initialize/start/stop/dispose across Components."
+    },
+    {
+      "path": "src/Sunmao.Core/Polling/PollingTaskBase.cs",
+      "primitive": "cancellation_token_source.new",
+      "count": 1,
+      "owner": "One source per loop run, cancelled and disposed by StopLockedAsync or CleanupCompletedLoop."
+    },
+    {
+      "path": "src/Sunmao.Core/Polling/PollingTaskBase.cs",
+      "primitive": "semaphore_slim.new",
+      "count": 1,
+      "owner": "Poller lifecycle gate serializing start/stop/dispose; disposed with the poller."
+    },
+    {
+      "path": "src/Sunmao.Core/Polling/PollingTaskBase.cs",
+      "primitive": "task.run",
+      "count": 1,
+      "owner": "The poll loop task; stored in _loop and always awaited by StopAsync/DisposeAsync."
+    },
+    {
+      "path": "src/Sunmao.Wpf/Mvvm/AsyncCommandExecution.cs",
+      "primitive": "cancellation_token_source.new",
+      "count": 1,
+      "owner": "One source per command invocation; disposed exactly once by the completion/cancellation hand-off."
+    },
+    {
+      "path": "src/Sunmao.Wpf/Mvvm/AsyncRelayCommand.cs",
+      "primitive": "async_void",
+      "count": 2,
+      "owner": "ICommand.Execute must return void; both bodies only await ExecuteAsync, which catches every failure."
+    },
+    {
+      "path": "src/Sunmao.Wpf/Polling/UiPollingTimer.cs",
+      "primitive": "dispatcher_timer.new",
+      "count": 1,
+      "owner": "The single application UI pulse; started and disposed by the composition root on the UI thread."
+    },
+    {
+      "path": "src/Sunmao.Wpf.Theme/ThemeManager.cs",
+      "primitive": "lock",
+      "count": 2,
+      "owner": "Guards the weak list of system-following themes; SystemEvents subscription and dispatching happen outside the lock."
+    },
+    {
+      "path": "src/Sunmao.Testing/ManualTimeProvider.cs",
+      "primitive": "lock",
+      "count": 4,
+      "owner": "Guards the scheduled-timer list; callbacks always run outside the lock."
+    },
+    {
+      "path": "src/Sunmao.Testing/RecordingLogSink.cs",
+      "primitive": "lock",
+      "count": 2,
+      "owner": "Guards the in-memory entry list for concurrent writers and snapshot readers."
+    },
+    {
+      "path": "src/Sunmao.Communication/ManagedConnection.cs",
+      "primitive": "cancellation_token_source.new",
+      "count": 1,
+      "owner": "Per-attempt connect timeout, disposed when the attempt ends."
+    },
+    {
+      "path": "src/Sunmao.Communication/ManagedConnection.cs",
+      "primitive": "cancellation_token_source.linked",
+      "count": 1,
+      "owner": "Links the supervisor stop token with the connect timeout; disposed when the attempt ends."
+    },
+    {
+      "path": "src/Sunmao.Communication/RequestResponseChannel.cs",
+      "primitive": "cancellation_token_source.new",
+      "count": 1,
+      "owner": "Per-exchange timeout, disposed when the exchange ends."
+    },
+    {
+      "path": "src/Sunmao.Communication/RequestResponseChannel.cs",
+      "primitive": "cancellation_token_source.linked",
+      "count": 1,
+      "owner": "Links the caller token with the exchange timeout; disposed when the exchange ends."
+    },
+    {
+      "path": "src/Sunmao.Communication/RequestResponseChannel.cs",
+      "primitive": "semaphore_slim.new",
+      "count": 1,
+      "owner": "Serializes exchanges so each response belongs to its request; released in finally."
+    },
+    {
+      "path": "src/Sunmao.Communication/SocketTransportBase.cs",
+      "primitive": "semaphore_slim.new",
+      "count": 1,
+      "owner": "Serializes connect/disconnect/dispose of the socket; released in finally."
+    },
+    {
+      "path": "src/Sunmao.Communication.Serial/SerialTransport.cs",
+      "primitive": "semaphore_slim.new",
+      "count": 1,
+      "owner": "Serializes open/close/dispose of the serial port; released in finally."
+    },
+    {
+      "path": "src/Sunmao.Wpf.Theme/ComponentLoading.cs",
+      "primitive": "lock",
+      "count": 2,
+      "owner": "Serializes Application.LoadComponent across UI threads (WPF's shared resource package part is not thread-safe); no await or user code inside."
+    }
+  ]
+}

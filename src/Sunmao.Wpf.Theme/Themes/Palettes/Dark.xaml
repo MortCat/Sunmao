@@ -1,0 +1,68 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        Walnut dark palette: warm charcoal neutrals with a light walnut accent. Same keys and contrast rules as Light.xaml. The accent is lighter than in
+        the light palette so it keeps 3:1 against dark surfaces, and text on the accent is dark.
+    -->
+
+    <Color x:Key="AccentColor">#D9A46E</Color>
+
+    <!-- ==== Surfaces and text ========================================================== -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#16130F" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#1F1B16" />
+    <SolidColorBrush x:Key="SurfaceSoftBrush" Color="#231E19" />
+    <SolidColorBrush x:Key="SurfaceMutedBrush" Color="#2A241E" />
+    <SolidColorBrush x:Key="SurfaceHoverBrush" Color="#29231D" />
+
+    <SolidColorBrush x:Key="LineBrush" Color="#342D25" />
+    <SolidColorBrush x:Key="LineStrongBrush" Color="#473E33" />
+
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#EEE8DF" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#B3A999" />
+    <SolidColorBrush x:Key="TextTertiaryBrush" Color="#8E8375" />
+
+    <!-- ==== Accent ===================================================================== -->
+    <SolidColorBrush x:Key="AccentBrush" Color="#D9A46E" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="#E4B584" />
+    <SolidColorBrush x:Key="AccentPressedBrush" Color="#C48E57" />
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="#3A2A1B" />
+    <SolidColorBrush x:Key="AccentSecondaryBrush" Color="#E8C299" />
+    <SolidColorBrush x:Key="TextOnAccentBrush" Color="#2A1905" />
+    <SolidColorBrush x:Key="FocusBrush" Color="#F0C99A" />
+
+    <!-- ==== Chrome ===================================================================== -->
+    <SolidColorBrush x:Key="ChromeBrush" Color="#100D0A" />
+    <SolidColorBrush x:Key="ChromeHoverBrush" Color="#1E1914" />
+    <SolidColorBrush x:Key="ChromeDividerBrush" Color="#2E2720" />
+    <SolidColorBrush x:Key="ChromeRecessBrush" Color="#0B0907" />
+    <SolidColorBrush x:Key="TextOnChromeBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="TextOnChromeMutedBrush" Color="#BFB2A0" />
+    <!-- Lighter than the bar so the selected tab stands out; white text keeps 8:1. -->
+    <SolidColorBrush x:Key="ChromeSelectedBrush" Color="#3A2E22" />
+    <SolidColorBrush x:Key="TextOnChromeSelectedBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="OnlineBrush" Color="#57D98C" />
+
+    <!-- ==== Status ===================================================================== -->
+    <SolidColorBrush x:Key="SuccessBrush" Color="#58C08A" />
+    <SolidColorBrush x:Key="SuccessSoftBrush" Color="#16301F" />
+    <SolidColorBrush x:Key="SuccessTextBrush" Color="#7FD6A5" />
+
+    <SolidColorBrush x:Key="WarningBrush" Color="#E3B341" />
+    <SolidColorBrush x:Key="WarningSoftBrush" Color="#3A2F14" />
+    <SolidColorBrush x:Key="WarningTextBrush" Color="#F2CD73" />
+
+    <SolidColorBrush x:Key="DangerBrush" Color="#E86A5C" />
+    <SolidColorBrush x:Key="DangerSoftBrush" Color="#3B1D19" />
+    <SolidColorBrush x:Key="DangerTextBrush" Color="#F4907F" />
+    <SolidColorBrush x:Key="DangerLineBrush" Color="#6B3029" />
+
+    <SolidColorBrush x:Key="InfoBrush" Color="#5AA5DB" />
+    <SolidColorBrush x:Key="InfoSoftBrush" Color="#152A3B" />
+    <SolidColorBrush x:Key="InfoTextBrush" Color="#8CC2EA" />
+
+    <!-- ==== Shadows: stronger, because dark surfaces hide a light shadow ================ -->
+    <DropShadowEffect x:Key="SoftShadow" BlurRadius="10" ShadowDepth="1" Direction="270" Opacity="0.35" Color="#000000" />
+    <DropShadowEffect x:Key="LiftShadow" BlurRadius="18" ShadowDepth="3" Direction="270" Opacity="0.45" Color="#000000" />
+
+</ResourceDictionary>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoWindowsTargetFrameworks)</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Sunmao.Wpf\Sunmao.Wpf.csproj" />
+    <ProjectReference Include="..\..\src\Sunmao.Testing\Sunmao.Testing.csproj" />
+  </ItemGroup>
+
+</Project>

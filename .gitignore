@@ -1,0 +1,16 @@
+# Build output
+bin/
+obj/
+artifacts/
+TestResults/
+
+# IDE state
+.vs/
+.vscode/
+*.user
+*.suo
+.idea/
+
+# Python tool caches
+__pycache__/
+*.pyc

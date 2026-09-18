@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoWindowsTargetFrameworks)</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <Description>WPF MVVM building blocks: view model base, sync and async commands, one shared UI polling pulse, UI dispatcher access and a confirmation dialog port.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunmao.Core\Sunmao.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Sunmao.Wpf.Tests" />
+  </ItemGroup>
+
+</Project>

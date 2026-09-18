@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Sunmao.Core\Sunmao.Core.csproj" />
+    <ProjectReference Include="..\..\src\Sunmao.Testing\Sunmao.Testing.csproj" />
+  </ItemGroup>
+
+</Project>

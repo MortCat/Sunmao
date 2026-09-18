@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!--
+        Touch density: panels on the shop floor, often used with gloves. Interactive targets are at
+        least 44 px, spacing grows with them, and scroll bars are wide enough to drag with a finger.
+        Same keys as Standard.xaml.
+    -->
+
+    <sys:Double x:Key="ControlHeight">46</sys:Double>
+    <sys:Double x:Key="ControlFontSize">15</sys:Double>
+    <Thickness x:Key="ButtonPadding">22,0</Thickness>
+
+    <sys:Double x:Key="InputHeight">46</sys:Double>
+    <Thickness x:Key="InputPadding">14,0</Thickness>
+
+    <sys:Double x:Key="IconButtonSize">46</sys:Double>
+    <sys:Double x:Key="ToggleSize">24</sys:Double>
+    <sys:Double x:Key="SwitchWidth">52</sys:Double>
+    <sys:Double x:Key="SwitchHeight">28</sys:Double>
+
+    <Thickness x:Key="ListItemPadding">14,12</Thickness>
+    <sys:Double x:Key="RowMinHeight">44</sys:Double>
+
+    <sys:Double x:Key="SegmentHeight">44</sys:Double>
+    <sys:Double x:Key="FilterTabHeight">40</sys:Double>
+    <sys:Double x:Key="ChromeTabWidth">100</sys:Double>
+    <sys:Double x:Key="ChromeBarHeight">78</sys:Double>
+
+    <sys:Double x:Key="ScrollBarSize">18</sys:Double>
+
+</ResourceDictionary>

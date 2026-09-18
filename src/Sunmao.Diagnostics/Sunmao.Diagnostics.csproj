@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+    <Description>Non-blocking daily text log sink with a bounded queue, pressure-aware dropping and flush barriers.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunmao.Core\Sunmao.Core.csproj" />
+  </ItemGroup>
+
+</Project>

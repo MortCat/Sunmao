@@ -1,0 +1,22 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/Sunmao.Samples.ThemeGallery/Sunmao.Samples.ThemeGallery.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Sunmao.Communication.Serial/Sunmao.Communication.Serial.csproj" />
+    <Project Path="src/Sunmao.Communication/Sunmao.Communication.csproj" />
+    <Project Path="src/Sunmao.Core/Sunmao.Core.csproj" />
+    <Project Path="src/Sunmao.Diagnostics/Sunmao.Diagnostics.csproj" />
+    <Project Path="src/Sunmao.Testing/Sunmao.Testing.csproj" />
+    <Project Path="src/Sunmao.Wpf.Theme/Sunmao.Wpf.Theme.csproj" />
+    <Project Path="src/Sunmao.Wpf/Sunmao.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Sunmao.Communication.Tests/Sunmao.Communication.Tests.csproj" />
+    <Project Path="tests/Sunmao.Core.Tests/Sunmao.Core.Tests.csproj" />
+    <Project Path="tests/Sunmao.Diagnostics.Tests/Sunmao.Diagnostics.Tests.csproj" />
+    <Project Path="tests/Sunmao.Testing.Tests/Sunmao.Testing.Tests.csproj" />
+    <Project Path="tests/Sunmao.Wpf.Tests/Sunmao.Wpf.Tests.csproj" />
+    <Project Path="tests/Sunmao.Wpf.Theme.Tests/Sunmao.Wpf.Theme.Tests.csproj" />
+  </Folder>
+</Solution>

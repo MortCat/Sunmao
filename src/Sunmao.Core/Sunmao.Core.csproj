@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+    <Description>Component lifecycle, polling tasks, retry backoff and logging abstractions. No dependencies.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Sunmao.Core.Tests" />
+  </ItemGroup>
+
+</Project>

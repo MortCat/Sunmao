@@ -1,0 +1,30 @@
+<Project>
+
+  <!--
+    Shared build settings for every Sunmao project.
+
+    Platform-neutral libraries target $(SunmaoTargetFrameworks). WPF libraries, WPF samples and
+    their tests target $(SunmaoWindowsTargetFrameworks). src/, tests/ and samples/ each add
+    their own Directory.Build.props on top of this file.
+  -->
+  <PropertyGroup>
+    <SunmaoTargetFrameworks>net8.0;net10.0</SunmaoTargetFrameworks>
+    <SunmaoWindowsTargetFrameworks>net8.0-windows;net10.0-windows</SunmaoWindowsTargetFrameworks>
+
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NeutralLanguage>en</NeutralLanguage>
+    <InvariantGlobalization>false</InvariantGlobalization>
+
+    <Deterministic>true</Deterministic>
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+
+    <Version>0.1.0</Version>
+    <Product>Sunmao</Product>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+</Project>
