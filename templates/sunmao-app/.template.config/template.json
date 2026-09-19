@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Sunmao",
+  "classifications": [
+    "WPF",
+    "Desktop",
+    "Library"
+  ],
+  "identity": "Sunmao.Templates.App",
+  "name": "Sunmao application",
+  "shortName": "sunmao-app",
+  "sourceName": "Sunmao.App",
+  "preferNameDirectory": true,
+  "sources": [
+    {
+      "source": "content",
+      "target": "./"
+    }
+  ],
+  "description": "A small WPF application composed from Sunmao lifecycle, diagnostics, MVVM, polling and theme packages.",
+  "symbols": {
+    "framework": {
+      "type": "parameter",
+      "datatype": "choice",
+      "defaultValue": "net10.0-windows",
+      "choices": [
+        {
+          "choice": "net10.0-windows",
+          "description": "Target .NET 10 for the generated application."
+        },
+        {
+          "choice": "net8.0-windows",
+          "description": "Target .NET 8 for the generated application."
+        }
+      ],
+      "replaces": "__FRAMEWORK__"
+    }
+  },
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}

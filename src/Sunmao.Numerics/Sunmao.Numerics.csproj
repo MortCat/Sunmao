@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+    <Description>Dependency-free double-precision vectors, rotations and rigid coordinate transforms.</Description>
+  </PropertyGroup>
+</Project>

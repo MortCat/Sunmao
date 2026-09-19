@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "source_fingerprint": "fc2229a3e83cd8e113f6ea74b6a6510eb4f9b44c043d1a79e088b508229cc34f",
+  "entries": [
+    {
+      "id": "communication.reconnect",
+      "summary": "Own and supervise reconnecting transport lifecycle.",
+      "package": "Sunmao.Communication",
+      "api_version": "0.2.0",
+      "contract_path": "recipes/reconnecting-communication/README.md",
+      "recipe": {
+        "id": "reconnecting-communication",
+        "source": "recipes/reconnecting-communication/Example.cs",
+        "readme": "recipes/reconnecting-communication/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/ConnectionRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "ConnectionRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Scripted transport proves retry ownership, not device or network reliability."
+      ],
+      "file_hashes": {
+        "recipes/reconnecting-communication/Example.cs": "43bed19043a7aea5b66b766d8090b6e19e7706f88e728b1cf9f7ec1cba9b9d41",
+        "recipes/reconnecting-communication/README.md": "748de166ae484bc12aa7c52f0cbaaf5de2e7ce30fdb6ed322c41f4bdcafb0be1",
+        "src/Sunmao.Communication/ManagedConnection.cs": "1eee0004b0640febb0dbf05748b57e0ac4359fce880db890f68a599424223106",
+        "tests/Sunmao.Recipes.Tests/ConnectionRecipeTests.cs": "b37c1a39bd861ff3cf2bd2cad14a1af0e0b9490b8d6ccd7c508d5996e538395b",
+        "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj": "e587af19ac1c7b54eeef8330604fcb7c5421c0702baa604f9d967d015aa75e41"
+      }
+    },
+    {
+      "id": "core.lifecycle",
+      "summary": "Compose component lifecycles in dependency order.",
+      "package": "Sunmao.Core",
+      "api_version": "0.2.0",
+      "contract_path": "recipes/lifecycle/README.md",
+      "recipe": {
+        "id": "lifecycle",
+        "source": "recipes/lifecycle/Example.cs",
+        "readme": "recipes/lifecycle/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/LifecycleRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "LifecycleRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Consumer-specific startup rollback still needs application tests."
+      ],
+      "file_hashes": {
+        "recipes/lifecycle/Example.cs": "8d82bb8247abe8c631ebac7af0bde61e75468a971fc1ea85173a9ed7aae20891",
+        "recipes/lifecycle/README.md": "c9d2e5bb8dec4b8642c8b045b4a9866204ec19f4eb126c219dd12af7b762299a",
+        "src/Sunmao.Core/Lifecycle/ComponentLifecycleCoordinator.cs": "cce0a5bb128aad21f18787cce92d87e9cd8068c793a4b858f8329f9a5194a10a",
+        "tests/Sunmao.Recipes.Tests/LifecycleRecipeTests.cs": "2f7667f73a5b7b3e5d7b87cc2937495161904f9c9c48e3a906d23a7c4b49b073",
+        "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj": "e587af19ac1c7b54eeef8330604fcb7c5421c0702baa604f9d967d015aa75e41"
+      }
+    },
+    {
+      "id": "core.private-polling",
+      "summary": "Own periodic bounded work inside a component.",
+      "package": "Sunmao.Core",
+      "api_version": "0.2.0",
+      "contract_path": "recipes/private-polling/README.md",
+      "recipe": {
+        "id": "private-polling",
+        "source": "recipes/private-polling/Example.cs",
+        "readme": "recipes/private-polling/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/PollingRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "PollingRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "The example counts iterations; real I/O must observe cancellation."
+      ],
+      "file_hashes": {
+        "recipes/private-polling/Example.cs": "c33f046485ee9315165feeb56667e5baef82ca74e4a005fdd3c2326beb8bf671",
+        "recipes/private-polling/README.md": "4c8d13feb2f18cd53f3f847c7e5eda6f108c7f2d276e1a1c7cea988934cccf44",
+        "src/Sunmao.Core/Polling/PollingTaskBase.cs": "a88cb51ce19823b189481c159ddec97a6cffc46052c3c66a1f95d3026d7368e0",
+        "tests/Sunmao.Recipes.Tests/PollingRecipeTests.cs": "2bd233baf06a199e9ae1ca94d2d32cd0a9d98c3697880c00178f1e3d02f53979",
+        "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj": "e587af19ac1c7b54eeef8330604fcb7c5421c0702baa604f9d967d015aa75e41"
+      }
+    },
+    {
+      "id": "numerics.coordinate-transform",
+      "summary": "Compose and invert double-precision rigid coordinate transforms.",
+      "package": "Sunmao.Numerics",
+      "api_version": "0.2.0",
+      "contract_path": "src/Sunmao.Numerics/README.md",
+      "recipe": {
+        "id": "coordinate-transform",
+        "source": "recipes/coordinate-transform/Example.cs",
+        "readme": "recipes/coordinate-transform/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/CoordinateTransformRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "CoordinateTransformRecipeTests"
+      },
+      "verification_profile": "full",
+      "limitations": [
+        "Example-backed mathematical foundation, not production consumer evidence.",
+        "Caller supplies consistent units and matching coordinate frames; no frame or unit validation.",
+        "Finite-precision arithmetic; no dense solvers, scale, shear or device control."
+      ],
+      "file_hashes": {
+        "recipes/coordinate-transform/Example.cs": "acb246b5e0fe87ef238cba34832689c168ea884da65f3543ccf630c6f6b66864",
+        "recipes/coordinate-transform/README.md": "5ac97ff5c0ba9bc502beed653e87df825054f2bb148b5516b89ce991d80210f0",
+        "src/Sunmao.Numerics/README.md": "83bc61d726d74f768f759aed6dcbf4aec84e1c4917ff7307b03283b6c38c103b",
+        "src/Sunmao.Numerics/RigidTransform3d.cs": "0a005c4b76b5c84de3a2055ba58bef8f1d2fa3a3fef4c4f6eb5c8d930c870e47",
+        "src/Sunmao.Numerics/Rotation3d.cs": "d65397a94db8ced7db8bc197f9e6e7d7677b1ad7b2f56e5d1e1ddaaf8f743789",
+        "src/Sunmao.Numerics/Vector3d.cs": "05d660956324df6f8b4f75c31930b8978de30d72b9d6a7596b423dba535b673e",
+        "tests/Sunmao.Recipes.Tests/CoordinateTransformRecipeTests.cs": "c710b8c5d2850152b1cd24107dc0d430c60334917cdb825532de778d91f8ee60",
+        "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj": "e587af19ac1c7b54eeef8330604fcb7c5421c0702baa604f9d967d015aa75e41"
+      }
+    },
+    {
+      "id": "wpf.command-cancellation",
+      "summary": "Cancel active commands and await cleanup on close.",
+      "package": "Sunmao.Wpf",
+      "api_version": "0.2.0",
+      "contract_path": "recipes/command-cancellation/README.md",
+      "recipe": {
+        "id": "command-cancellation",
+        "source": "recipes/command-cancellation/Example.cs",
+        "readme": "recipes/command-cancellation/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Wpf.Tests/CommandRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj",
+        "class": "CommandRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Requires Windows; the operation must observe its cancellation token."
+      ],
+      "file_hashes": {
+        "recipes/command-cancellation/Example.cs": "7f9a525d193de21fff196f7c2521943803a3c5f03969397a3c6e97fc824b3567",
+        "recipes/command-cancellation/README.md": "d02f5568cbd40e231bcb018e2d5307d5c524574005d045be5c80b0bb68bfcad8",
+        "src/Sunmao.Wpf/Mvvm/AsyncRelayCommand.cs": "597fd5c8a697cdd005e0efefcc381aa6f71387033d951952f9edb75d54b85a94",
+        "tests/Sunmao.Recipes.Wpf.Tests/CommandRecipeTests.cs": "e796c8a2f72e86af28b209ee3d479d815fff43f719dd72ae366848ba24c98508",
+        "tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj": "16e96e3c6011c8220c7ca87f4812ffb3eb7536b9c83055c1d55f34866f82677f"
+      }
+    },
+    {
+      "id": "wpf.snapshot-ui",
+      "summary": "Project immutable backend snapshots on an owned UI pulse.",
+      "package": "Sunmao.Wpf",
+      "api_version": "0.2.0",
+      "contract_path": "recipes/snapshot-ui/README.md",
+      "recipe": {
+        "id": "snapshot-ui",
+        "source": "recipes/snapshot-ui/Example.cs",
+        "readme": "recipes/snapshot-ui/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Wpf.Tests/SnapshotRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj",
+        "class": "SnapshotRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Single backend writer; intermediate snapshots may be skipped. No WPF rendering coverage."
+      ],
+      "file_hashes": {
+        "recipes/snapshot-ui/Example.cs": "00643ec19174fee3e15580f9f05fe4b755189c71ada2fe66d49b78232eef0958",
+        "recipes/snapshot-ui/README.md": "1b668c47e06f7f216e89f7e53514a81eecad3bc411b3ac7e4534cd64fe0075c3",
+        "src/Sunmao.Wpf/Polling/IUiPollingSource.cs": "189122c0adbc0c85ce1a6bb9c3441e73ed67a03e2274101e07e54ac9edec6c75",
+        "tests/Sunmao.Recipes.Wpf.Tests/SnapshotRecipeTests.cs": "3294e6b0d3754755e7842980b2eb6021d237fcd022b53c230298ba94e5c92e91",
+        "tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj": "16e96e3c6011c8220c7ca87f4812ffb3eb7536b9c83055c1d55f34866f82677f"
+      }
+    }
+  ]
+}

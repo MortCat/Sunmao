@@ -6,7 +6,7 @@ using Sunmao.Testing;
 namespace Sunmao.Communication.Tests;
 
 /// <summary>
-/// Smoke tests only; the full scenario suite (backoff timing, abandon rules, UDP, serial) is deferred.
+/// Loopback tests for transport integration; deterministic protocol contracts live in focused test classes.
 /// </summary>
 public sealed class CommunicationSmokeTests
 {

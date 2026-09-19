@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- The framework symbol resolves to net8.0-windows or net10.0-windows. -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>__FRAMEWORK__</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Sunmao.App</RootNamespace>
+    <AssemblyName>Sunmao.App</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sunmao.Core" Version="0.2.0" />
+    <PackageReference Include="Sunmao.Diagnostics" Version="0.2.0" />
+    <PackageReference Include="Sunmao.Wpf" Version="0.2.0" />
+    <PackageReference Include="Sunmao.Wpf.Theme" Version="0.2.0" />
+  </ItemGroup>
+
+</Project>

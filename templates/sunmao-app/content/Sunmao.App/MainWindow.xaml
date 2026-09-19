@@ -1,0 +1,35 @@
+<Window x:Class="Sunmao.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sunmao Application"
+        Width="720"
+        Height="420"
+        Style="{DynamicResource AppWindow}">
+    <Grid Margin="{DynamicResource PageGutter}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Sunmao application template" Style="{DynamicResource PageTitleText}" />
+        <TextBlock Grid.Row="1"
+                   Margin="0,8,0,20"
+                   Text="A lifecycle Component, a private poller and a snapshot driven page."
+                   Style="{DynamicResource PageSubtitleText}" />
+        <Border Grid.Row="2" Style="{DynamicResource Panel}">
+            <StackPanel>
+                <TextBlock Text="Simulated device" Style="{DynamicResource SectionTitleText}" />
+                <TextBlock Margin="0,14,0,0" Text="{Binding Status}" Style="{DynamicResource BodyText}" />
+                <TextBlock Margin="0,6,0,20" Style="{DynamicResource MetaText}">
+                    <Run Text="Updated " />
+                    <Run Text="{Binding UpdatedAt, Mode=OneWay}" />
+                </TextBlock>
+                <Button Width="120"
+                        HorizontalAlignment="Left"
+                        Content="Refresh"
+                        Command="{Binding RefreshCommand}"
+                        Style="{DynamicResource PrimaryButton}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

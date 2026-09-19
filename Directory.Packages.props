@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup Label="Library dependencies">
-    <PackageVersion Include="NModbus" Version="3.0.83" />
     <PackageVersion Include="System.IO.Ports" Version="8.0.0" />
   </ItemGroup>
 

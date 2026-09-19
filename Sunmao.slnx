@@ -3,6 +3,7 @@
     <Project Path="samples/Sunmao.Samples.ThemeGallery/Sunmao.Samples.ThemeGallery.csproj" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="src/Sunmao.Numerics/Sunmao.Numerics.csproj" />
     <Project Path="src/Sunmao.Communication.Serial/Sunmao.Communication.Serial.csproj" />
     <Project Path="src/Sunmao.Communication/Sunmao.Communication.csproj" />
     <Project Path="src/Sunmao.Core/Sunmao.Core.csproj" />
@@ -12,7 +13,11 @@
     <Project Path="src/Sunmao.Wpf/Sunmao.Wpf.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/Sunmao.Numerics.Tests/Sunmao.Numerics.Tests.csproj" />
+    <Project Path="tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj" />
+    <Project Path="tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj" />
     <Project Path="tests/Sunmao.Communication.Tests/Sunmao.Communication.Tests.csproj" />
+    <Project Path="tests/Sunmao.Communication.Serial.Tests/Sunmao.Communication.Serial.Tests.csproj" />
     <Project Path="tests/Sunmao.Core.Tests/Sunmao.Core.Tests.csproj" />
     <Project Path="tests/Sunmao.Diagnostics.Tests/Sunmao.Diagnostics.Tests.csproj" />
     <Project Path="tests/Sunmao.Testing.Tests/Sunmao.Testing.Tests.csproj" />

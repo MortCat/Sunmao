@@ -6,7 +6,7 @@ Run from the repository root:
     python tools/verify_architecture.py --self-test
 
 Rules
-    A1  Every project under src/ is registered below and has a README.md.
+    A1  Every project under src/ is registered below, has a README.md and has a test project.
     A2  Project and package references follow the allowed dependency direction.
     A3  WPF is used only by the WPF packages and by windows-targeted tests/samples/templates.
     A4  Forbidden concurrency primitives never appear in library, sample or template code.
@@ -30,6 +30,7 @@ from typing import Iterable
 # dependency direction a reviewed decision instead of an accident.
 ALLOWED_DEPENDENCIES: dict[str, dict[str, frozenset[str]]] = {
     "Sunmao.Core": {"projects": frozenset(), "packages": frozenset()},
+    "Sunmao.Numerics": {"projects": frozenset(), "packages": frozenset()},
     "Sunmao.Diagnostics": {"projects": frozenset({"Sunmao.Core"}), "packages": frozenset()},
     "Sunmao.Testing": {"projects": frozenset({"Sunmao.Core"}), "packages": frozenset()},
     "Sunmao.Wpf": {"projects": frozenset({"Sunmao.Core"}), "packages": frozenset()},
@@ -42,13 +43,9 @@ ALLOWED_DEPENDENCIES: dict[str, dict[str, frozenset[str]]] = {
         "projects": frozenset({"Sunmao.Core", "Sunmao.Communication"}),
         "packages": frozenset({"System.IO.Ports"}),
     },
-    "Sunmao.Communication.Modbus": {
-        "projects": frozenset({"Sunmao.Core", "Sunmao.Communication"}),
-        "packages": frozenset({"NModbus"}),
-    },
 }
 WPF_LIBRARIES = frozenset({"Sunmao.Wpf", "Sunmao.Wpf.Theme"})
-CODE_ROOTS = ("src", "samples", "templates")
+CODE_ROOTS = ("src", "samples", "templates", "recipes")
 
 BASELINE_NAME = "architecture_concurrency_baseline.json"
 BASELINE_PRIMITIVES: dict[str, re.Pattern[str]] = {
@@ -233,7 +230,10 @@ def check_a1(root: Path) -> CheckResult:
             failures.append(f"{display(root, project)}: not registered in ALLOWED_DEPENDENCIES")
         if not (project.parent / "README.md").is_file():
             failures.append(f"{display(root, project)}: missing README.md next to the project")
-    return CheckResult("A1", "Library projects are registered and documented", tuple(failures))
+        test_project = root / "tests" / f"{name}.Tests" / f"{name}.Tests.csproj"
+        if not test_project.is_file():
+            failures.append(f"{display(root, project)}: missing test project {display(root, test_project)}")
+    return CheckResult("A1", "Library projects are registered, documented and tested", tuple(failures))
 
 
 def check_a2(root: Path) -> CheckResult:
@@ -252,7 +252,7 @@ def check_a2(root: Path) -> CheckResult:
 
 def check_a3(root: Path) -> CheckResult:
     failures = []
-    for folder in ("src", "tests", "samples", "templates"):
+    for folder in ("src", "tests", "samples", "templates", "recipes"):
         for project in iter_projects(root, folder):
             _, _, uses_wpf = project_references(project)
             if not uses_wpf:
@@ -371,6 +371,10 @@ def _library(root: Path, name: str, body: str = "", readme: bool = True) -> None
         _write(root, f"src/{name}/README.md", f"# {name}")
 
 
+def _test_project(root: Path, name: str) -> None:
+    _write(root, f"tests/{name}.Tests/{name}.Tests.csproj", '<Project Sdk="Microsoft.NET.Sdk" />')
+
+
 def _baseline(root: Path, entries: list[dict]) -> None:
     _write(root, f"tools/{BASELINE_NAME}", json.dumps({"version": 1, "entries": entries}))
 
@@ -380,6 +384,7 @@ def run_self_test() -> int:
 
     def clean(root: Path) -> None:
         _library(root, "Sunmao.Core")
+        _test_project(root, "Sunmao.Core")
         _baseline(root, [])
 
     def a1(root: Path) -> None:
@@ -395,10 +400,12 @@ def run_self_test() -> int:
             '<ItemGroup><ProjectReference Include="..\\Sunmao.Wpf\\Sunmao.Wpf.csproj" />'
             '<PackageReference Include="Newtonsoft.Json" /></ItemGroup>',
         )
+        _test_project(root, "Sunmao.Diagnostics")
 
     def a3(root: Path) -> None:
         clean(root)
         _library(root, "Sunmao.Communication", "<PropertyGroup><UseWPF>true</UseWPF></PropertyGroup>")
+        _test_project(root, "Sunmao.Communication")
         _write(root, "src/Sunmao.Core/Bad.cs", "using System.Windows;\nclass Bad {}\n")
 
     def a4(root: Path) -> None:
@@ -422,8 +429,17 @@ def run_self_test() -> int:
         _write(root, "src/Sunmao.Core/Gate.cs", "class Gate { object o = new(); void M() { lock (o) { } } }\n")
         _baseline(root, [{"path": "src/Sunmao.Core/Gate.cs", "primitive": "lock", "count": 2, "owner": "x"}])
 
+    def recipe_a4(root: Path) -> None:
+        clean(root)
+        _write(root, "recipes/example/Bad.cs", "class Bad { void M() { Thread.Sleep(1); } }")
+
+    def recipe_a5(root: Path) -> None:
+        clean(root)
+        _write(root, "recipes/example/Bad.cs", "public sealed class Bad : PollingTaskBase { }")
+
     cases = [("clean", "", clean), ("A1", "A1", a1), ("A2", "A2", a2), ("A3", "A3", a3),
-             ("A4", "A4", a4), ("A5", "A5", a5), ("A6", "A6", a6)]
+             ("A4", "A4", a4), ("A5", "A5", a5), ("A6", "A6", a6),
+             ("recipe-A4", "A4", recipe_a4), ("recipe-A5", "A5", recipe_a5)]
     errors: list[str] = []
     for label, expected_rule, arrange in cases:
         root = Path(tempfile.mkdtemp(prefix="sunmao-arch-"))
@@ -437,6 +453,8 @@ def run_self_test() -> int:
                 errors.append(f"{label}: expected failing {wanted}, got {failing} ({details})")
             if label == "A4" and len(results["A4"].failures) != 3:
                 errors.append(f"A4: expected 3 findings (masking), got {list(results['A4'].failures)}")
+            if label == "A1" and not any("missing test project" in failure for failure in results["A1"].failures):
+                errors.append("A1: missing test project was not seeded")
         finally:
             shutil.rmtree(root, ignore_errors=True)
     if errors:

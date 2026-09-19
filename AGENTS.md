@@ -12,6 +12,10 @@ never work around a rule locally.
 - Sunmao is a standalone shared library that belongs to no application. Add only what is
   domain-neutral and proven in real use, or what at least two projects need. Do not add
   abstractions because they might be useful.
+- Scoped exception: the explicitly requested mathematical foundation in `Sunmao.Numerics` may
+  begin with immutable double-precision 3D vectors, rotations and rigid transforms before production
+  consumer evidence exists. ADR 0002 records the rationale and limits. Further capabilities still
+  follow the admission rule above; deterministic examples are not production-use evidence.
 - Keep the library free of application or domain vocabulary (product names, industry terms,
   customer names) in code, comments, samples and docs. Examples use neutral subjects such as
   devices, jobs and files.
@@ -24,13 +28,14 @@ never work around a rule locally.
 | Package | May reference | Third-party dependencies |
 |---|---|---|
 | `Sunmao.Core` | nothing | none |
+| `Sunmao.Numerics` | nothing | none |
 | `Sunmao.Diagnostics`, `Sunmao.Testing`, `Sunmao.Wpf`, `Sunmao.Communication` | `Core` | none |
 | `Sunmao.Wpf.Theme` | `Core`, `Wpf` | none |
 | `Sunmao.Communication.Serial` | `Core`, `Communication` | `System.IO.Ports` |
-| `Sunmao.Communication.Modbus` | `Core`, `Communication` | `NModbus` |
 
 - `tools/verify_architecture.py` (A2) checks the direction. A new package or dependency updates
-  that tool's `ALLOWED_DEPENDENCIES`, this table and the package README, with the reason.
+  that tool's `ALLOWED_DEPENDENCIES`, this table and the package README, with the reason. Modbus is
+  a planned extension and is not currently part of this repository.
 - WPF appears only in `Sunmao.Wpf`, `Sunmao.Wpf.Theme` and `-windows` tests, samples and templates.
 - Target frameworks: `net8.0;net10.0` for general packages, `net8.0-windows;net10.0-windows` for WPF
   packages. Do not use newer-runtime APIs without conditional compilation.
@@ -77,7 +82,8 @@ never work around a rule locally.
   define its owner, capacity, stop order and failure policy. `tools/architecture_concurrency_baseline.json`
   (A6) is a ratchet of reviewed counts; every entry states its owner. Never edit it just to silence
   the check.
-- Samples and templates (`samples/`, `templates/`) follow the same rules: people copy them.
+- Samples, templates and recipes (`samples/`, `templates/`, `recipes/`) follow the same rules:
+  people copy them. Recipes are compiled directly by their corresponding recipe test projects.
 
 ## 6. Public API and versioning
 
@@ -108,6 +114,12 @@ python tools/verify_architecture.py --self-test
 python tools/verify_architecture.py --root .
 git diff --check
 ```
+
+For development-asset changes, run `python tools/verify_catalog.py --write-index` after reviewing
+source changes, then `powershell -NoProfile -File tools/verify.ps1 -Profile full`. This profile
+includes the checks above, tool failure tests, catalog validation and generated application tests.
+Never treat regenerated metadata as evidence of passing verification. Catalog entries select fixed
+profiles, never executable commands. Keep model tooling out of runtime packages.
 
 When adding or changing a package, update its README (when to use it, a minimal example, what not
 to do) and the package map in the root README.

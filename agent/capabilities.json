@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "capabilities": [
+    {
+      "id": "core.lifecycle",
+      "summary": "Compose component lifecycles in dependency order.",
+      "package": "Sunmao.Core",
+      "api_version": "0.2.0",
+      "maturity": "example-backed",
+      "target_frameworks": [
+        "net8.0",
+        "net10.0"
+      ],
+      "contract_path": "recipes/lifecycle/README.md",
+      "source_paths": [
+        "src/Sunmao.Core/Lifecycle/ComponentLifecycleCoordinator.cs"
+      ],
+      "recipe": {
+        "id": "lifecycle",
+        "source": "recipes/lifecycle/Example.cs",
+        "readme": "recipes/lifecycle/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/LifecycleRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "LifecycleRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Consumer-specific startup rollback still needs application tests."
+      ]
+    },
+    {
+      "id": "core.private-polling",
+      "summary": "Own periodic bounded work inside a component.",
+      "package": "Sunmao.Core",
+      "api_version": "0.2.0",
+      "maturity": "example-backed",
+      "target_frameworks": [
+        "net8.0",
+        "net10.0"
+      ],
+      "contract_path": "recipes/private-polling/README.md",
+      "source_paths": [
+        "src/Sunmao.Core/Polling/PollingTaskBase.cs"
+      ],
+      "recipe": {
+        "id": "private-polling",
+        "source": "recipes/private-polling/Example.cs",
+        "readme": "recipes/private-polling/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/PollingRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "PollingRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "The example counts iterations; real I/O must observe cancellation."
+      ]
+    },
+    {
+      "id": "communication.reconnect",
+      "summary": "Own and supervise reconnecting transport lifecycle.",
+      "package": "Sunmao.Communication",
+      "api_version": "0.2.0",
+      "maturity": "example-backed",
+      "target_frameworks": [
+        "net8.0",
+        "net10.0"
+      ],
+      "contract_path": "recipes/reconnecting-communication/README.md",
+      "source_paths": [
+        "src/Sunmao.Communication/ManagedConnection.cs"
+      ],
+      "recipe": {
+        "id": "reconnecting-communication",
+        "source": "recipes/reconnecting-communication/Example.cs",
+        "readme": "recipes/reconnecting-communication/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/ConnectionRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "ConnectionRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Scripted transport proves retry ownership, not device or network reliability."
+      ]
+    },
+    {
+      "id": "wpf.command-cancellation",
+      "summary": "Cancel active commands and await cleanup on close.",
+      "package": "Sunmao.Wpf",
+      "api_version": "0.2.0",
+      "maturity": "example-backed",
+      "target_frameworks": [
+        "net8.0-windows",
+        "net10.0-windows"
+      ],
+      "contract_path": "recipes/command-cancellation/README.md",
+      "source_paths": [
+        "src/Sunmao.Wpf/Mvvm/AsyncRelayCommand.cs"
+      ],
+      "recipe": {
+        "id": "command-cancellation",
+        "source": "recipes/command-cancellation/Example.cs",
+        "readme": "recipes/command-cancellation/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Wpf.Tests/CommandRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj",
+        "class": "CommandRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Requires Windows; the operation must observe its cancellation token."
+      ]
+    },
+    {
+      "id": "wpf.snapshot-ui",
+      "summary": "Project immutable backend snapshots on an owned UI pulse.",
+      "package": "Sunmao.Wpf",
+      "api_version": "0.2.0",
+      "maturity": "example-backed",
+      "target_frameworks": [
+        "net8.0-windows",
+        "net10.0-windows"
+      ],
+      "contract_path": "recipes/snapshot-ui/README.md",
+      "source_paths": [
+        "src/Sunmao.Wpf/Polling/IUiPollingSource.cs"
+      ],
+      "recipe": {
+        "id": "snapshot-ui",
+        "source": "recipes/snapshot-ui/Example.cs",
+        "readme": "recipes/snapshot-ui/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Wpf.Tests/SnapshotRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Wpf.Tests/Sunmao.Recipes.Wpf.Tests.csproj",
+        "class": "SnapshotRecipeTests"
+      },
+      "verification_profile": "recipes",
+      "limitations": [
+        "Single backend writer; intermediate snapshots may be skipped. No WPF rendering coverage."
+      ]
+    },
+    {
+      "id": "numerics.coordinate-transform",
+      "summary": "Compose and invert double-precision rigid coordinate transforms.",
+      "package": "Sunmao.Numerics",
+      "api_version": "0.2.0",
+      "maturity": "example-backed",
+      "target_frameworks": [
+        "net8.0",
+        "net10.0"
+      ],
+      "contract_path": "src/Sunmao.Numerics/README.md",
+      "source_paths": [
+        "src/Sunmao.Numerics/Vector3d.cs",
+        "src/Sunmao.Numerics/Rotation3d.cs",
+        "src/Sunmao.Numerics/RigidTransform3d.cs"
+      ],
+      "recipe": {
+        "id": "coordinate-transform",
+        "source": "recipes/coordinate-transform/Example.cs",
+        "readme": "recipes/coordinate-transform/README.md"
+      },
+      "test": {
+        "source": "tests/Sunmao.Recipes.Tests/CoordinateTransformRecipeTests.cs",
+        "project": "tests/Sunmao.Recipes.Tests/Sunmao.Recipes.Tests.csproj",
+        "class": "CoordinateTransformRecipeTests"
+      },
+      "verification_profile": "full",
+      "limitations": [
+        "Example-backed mathematical foundation, not production consumer evidence.",
+        "Caller supplies consistent units and matching coordinate frames; no frame or unit validation.",
+        "Finite-precision arithmetic; no dense solvers, scale, shear or device control."
+      ]
+    }
+  ]
+}

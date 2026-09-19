@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Sunmao.Numerics/Sunmao.Numerics.csproj" />
+    <Compile Include="../../recipes/coordinate-transform/Example.cs" Link="Recipes/CoordinateTransform.cs" />
+    <ProjectReference Include="../../src/Sunmao.Communication/Sunmao.Communication.csproj" />
+    <ProjectReference Include="../../src/Sunmao.Testing/Sunmao.Testing.csproj" />
+    <Compile Include="../../recipes/lifecycle/Example.cs" Link="Recipes/Lifecycle.cs" />
+    <Compile Include="../../recipes/private-polling/Example.cs" Link="Recipes/Polling.cs" />
+    <Compile Include="../../recipes/reconnecting-communication/Example.cs" Link="Recipes/Connection.cs" />
+  </ItemGroup>
+</Project>

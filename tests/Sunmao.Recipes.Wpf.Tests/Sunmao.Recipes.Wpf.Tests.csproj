@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(SunmaoWindowsTargetFrameworks)</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Sunmao.Wpf/Sunmao.Wpf.csproj" />
+    <ProjectReference Include="../../src/Sunmao.Testing/Sunmao.Testing.csproj" />
+    <Compile Include="../../recipes/command-cancellation/Example.cs" Link="Recipes/Command.cs" />
+    <Compile Include="../../recipes/snapshot-ui/Example.cs" Link="Recipes/Snapshot.cs" />
+  </ItemGroup>
+</Project>
